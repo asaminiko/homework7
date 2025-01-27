@@ -1,18 +1,20 @@
 try {
-  for (let i = 0; i < 10; i++) {
-    let input = check(prompt('Введи число > 100'))
-    console.log(Number(input))
-    if (Number(input) > 100 || isNaN(input)) {
-      console.log(`Ти ввів ${input}`)
-      break
-    } else {
-      console.log(`Ти ввів ${input}, а потрібно було число > 100. Введи ще раз`)
-    }
-  }
+  isMoreHundred()
 } catch (error) {
   console.error(`Помилка, ${error}`)
 } finally {
   console.log('Перевірено')
+}
+function isMoreHundred() {
+  for (let i = 0; i < 10; i++) {
+    let input = check(prompt('Введи число > 100'))
+
+    if (Number(input) > 100 || isNaN(input)) {
+      return console.log(`Ти ввів ${input}`)
+    }
+    console.log(`Ти ввів ${input}, а потрібно було число > 100.`)
+    continue
+  }
 }
 //перевірка
 function check(y) {
